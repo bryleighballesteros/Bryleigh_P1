@@ -9,13 +9,29 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+
+
+    @IBOutlet weak var weatherConverterTitleLabel: UILabel!
+    
+    @IBOutlet weak var enterDegreesFarenheit: UITextField!
+    @IBOutlet weak var degreesConvertedCelsius: UILabel!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        weatherConverterTitleLabel.text = "Weather Converter"
+        degreesConvertedCelsius.text = " "
+        
+        
         // Do any additional setup after loading the view.
     }
-    
 
+    @IBAction func submitPressedButton(_ sender: Any) {
+        let degreesFarenheit = enterDegreesFarenheit.text
+        let degreesCelsius = (Double(degreesFarenheit!)! - 32) * 5/9
+        degreesConvertedCelsius.text = "Today is \(String(format: "%.2f", degreesCelsius)) Degrees Celsius"
+    }
     /*
     // MARK: - Navigation
 
